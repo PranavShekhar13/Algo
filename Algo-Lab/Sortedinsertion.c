@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 
-int *insertionSort(int*);
-int *getRandom();
+int *insertionSort(int*, int n);
+int *getRandom(int n);
 void displaySequence();
 
-int* insertionSort(int *arr)
+int* insertionSort(int *arr,int n)
 {
-    int n = 100, key,j;
+    int key,j;
     for (int i = 1; i < n; i++)
     {
         key = arr[i];
@@ -23,8 +23,7 @@ int* insertionSort(int *arr)
         arr[j + 1] = key;
     }
 
-
-    int *a = (int *)malloc(100*sizeof(int));
+    int *a = (int *)malloc(n*sizeof(int));
 
     for (int i = 0; i < n; i++)
     {
@@ -45,10 +44,11 @@ void displaySequence(int *arr){
     }
 }
 
-int *getRandom()
+int *getRandom(int n)
 {
+    
 
-    int *temp = (int *)malloc(100*sizeof(int));
+    int *temp = (int *)malloc(n*sizeof(int));
     for (int i = 1; i <= 100; i++)
     {
         temp[i] = rand() % 100; //get random number
@@ -60,16 +60,19 @@ int *getRandom()
 int main()
 {
     clock_t start, end;
+    
+    int n;
+    printf("Enter the number of numbers to be Generated:-\n");
+    scanf("%d", &n);
+
+    int *a1 = getRandom(n);
 
 
-    int *a1 = getRandom();
-
-
-    int *arr = insertionSort(a1);
+    int *arr = insertionSort(a1,n);
 
     start = clock();
 
-    int *a2 = insertionSort(arr);
+    int *a2 = insertionSort(arr,n);
 
     end = clock();
 
