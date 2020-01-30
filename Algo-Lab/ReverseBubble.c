@@ -37,8 +37,8 @@ void bubbleSort(int *a, int n)
 int *getRandom(int n)
 {
 
-    int *temp = (int *)malloc(100*sizeof(int));
-    for (int i = 1; i <= 100; i++)
+    int *temp = (int *)malloc(n*sizeof(int));
+    for (int i = 1; i <= n; i++)
     {
         temp[i] = rand() % 100; //get random number
     }
