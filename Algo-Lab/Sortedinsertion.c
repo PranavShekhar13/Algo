@@ -4,7 +4,7 @@
 
 int *insertionSort(int*, int n);
 int *getRandom(int n);
-void displaySequence();
+void displaySequence(int*, int n);
 
 int* insertionSort(int *arr,int n)
 {
@@ -33,10 +33,8 @@ int* insertionSort(int *arr,int n)
     return a;
 }
 
-void displaySequence(int *arr){
+void displaySequence(int *arr,int n){
     printf("The Sorted Generated Sequence = \n");
-    
-    int n=100;
 
     for(int i=0;i<n;i++){
         printf("%d",arr[i]);
@@ -76,7 +74,7 @@ int main()
 
     end = clock();
 
-    displaySequence(a2);
+    displaySequence(a2,n);
 
     double elapsed = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
     printf("Time elapsed in ms: %f", elapsed);
