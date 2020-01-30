@@ -2,9 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 
-int *selectionSort(int*, int n);
+int *selectionSort(int*, int);
 int *getRandom(int n);
-void displaySequence();
+void displaySequence(int *, int);
 
 int* selectionSort(int *arr, int n)
 {
@@ -35,10 +35,8 @@ int* selectionSort(int *arr, int n)
     return a;
 }
 
-void displaySequence(int *arr){
+void displaySequence(int *arr, int n){
     printf("The Sorted Generated Sequence = \n");
-    
-    int n=100;
 
     for(int i=0;i<n;i++){
         printf("%d",arr[i]);
