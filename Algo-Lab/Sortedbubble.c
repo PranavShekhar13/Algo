@@ -2,9 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 
-int *insertionSort(int*, int n);
-int *getRandom(int n);
-void displaySequence();
+int *insertionSort(int*, int);
+int *getRandom(int);
+void displaySequence(int*, int);
 
 
 int* bubbleSort(int *a,int n)
@@ -34,10 +34,8 @@ int* bubbleSort(int *a,int n)
     return arr;
 }
 
-void displaySequence(int *arr){
+void displaySequence(int *arr, int n){
     printf("The Sorted Generated Sequence = \n");
-    
-    int n=100;
 
     for(int i=0;i<n;i++){
         printf("%d",arr[i]);
@@ -77,7 +75,7 @@ int main()
 
     end = clock();
 
-    displaySequence(a2);
+    displaySequence(a2,n);
 
     double elapsed = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
     printf("Time elapsed in ms: %f", elapsed);
