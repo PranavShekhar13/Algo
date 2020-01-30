@@ -30,7 +30,7 @@ int* bubbleSort(int *a)
         arr[i] = a[i]; 
     }
 
-    return a;
+    return arr;
 }
 
 void displaySequence(int *arr){
