@@ -1,6 +1,10 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
 
-using namespace std;
+int *insertionSort(int*);
+int *getRandom();
+void displaySequence();
 
 int* insertionSort(int *arr)
 {
@@ -19,7 +23,8 @@ int* insertionSort(int *arr)
         arr[j + 1] = key;
     }
 
-    int *a = new int[100];
+
+    int *a = (int *)malloc(100*sizeof(int));
 
     for (int i = 0; i < n; i++)
     {
@@ -30,19 +35,20 @@ int* insertionSort(int *arr)
 }
 
 void displaySequence(int *arr){
-    cout<<"The Sorted Generated Sequence = "<<endl;
+    printf("The Sorted Generated Sequence = \n");
     
     int n=100;
 
     for(int i=0;i<n;i++){
-        cout<<arr[i]<<endl;
+        printf("%d",arr[i]);
+        printf("\n");
     }
 }
 
 int *getRandom()
 {
 
-    int *temp = new int[100];
+    int *temp = (int *)malloc(100*sizeof(int));
     for (int i = 1; i <= 100; i++)
     {
         temp[i] = rand() % 100; //get random number
@@ -69,10 +75,8 @@ int main()
 
     displaySequence(a2);
 
-    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-    cout << "Time taken by program is : " << fixed
-         << time_taken << setprecision(5);
-    cout << " sec " << endl;
+    double elapsed = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
+    printf("Time elapsed in ms: %f", elapsed);
 
     return 0;
 }
