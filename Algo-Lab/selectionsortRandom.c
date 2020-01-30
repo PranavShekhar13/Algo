@@ -2,12 +2,12 @@
 #include<stdlib.h>
 #include<time.h>
 
-void selectionSort(int*);
-int *getRandom();
+void selectionSort(int*,int);
+int *getRandom(int n);
 
-void selectionSort(int *arr)
+void selectionSort(int *arr, int n)
 {
-    int n = 100, min, temp;
+    int min, temp;
     for (int i = 0; i < n - 1; i++)
     {
 
@@ -35,11 +35,12 @@ void selectionSort(int *arr)
 
 
 
-int *getRandom()
+int *getRandom(int n)
 {
+    
 
-    int *temp = (int *)malloc(100*sizeof(int));
-    for (int i = 1; i <= 100; i++)
+    int *temp = (int *)malloc(n*sizeof(int));
+    for (int i = 1; i <= n; i++)
     {
         temp[i] = rand() % 100; //get random number
     }
@@ -53,13 +54,16 @@ int main()
 {
     clock_t start, end;
 
+    int n;
+    printf("Enter the number of Random Numbers to be Generaed");
+    scanf("%d",&n);
 
-    int *a1 = getRandom();
+    int *a1 = getRandom(n);
 
 
     start = clock();
 
-     selectionSort(a1);
+     selectionSort(a1,n);
 
     end = clock();
 
