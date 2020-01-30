@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 
-void bubbleSort(int*);
-int *getRandom();
-int *Reverse(int*);
+void bubbleSort(int*,int);
+int *getRandom(int);
+int *Reverse(int*,int);
 
-void bubbleSort(int *a)
+void bubbleSort(int *a, int n)
 {
-    int n = 100, temp;
+    int temp;
 
     for (int i = 1; i < n - 1; i++)
     {
@@ -34,7 +34,7 @@ void bubbleSort(int *a)
 
 
 
-int *getRandom()
+int *getRandom(int n)
 {
 
     int *temp = (int *)malloc(100*sizeof(int));
@@ -46,10 +46,10 @@ int *getRandom()
     return temp;
 }
 
-int *Reverse(int *a) {
+int *Reverse(int *a, int n) {
 
-    int *temp = (int *)malloc(100*sizeof(int));
-    for (int i = 100; i > 0; i--)
+    int *temp = (int *)malloc(n*sizeof(int));
+    for (int i = n; i > 0; i--)
     {
 
         temp[i] = a[i];
@@ -60,16 +60,20 @@ int *Reverse(int *a) {
 int main()
 {
     clock_t start, end;
+    
+    int n;
+    
+    printf("Enter the number of random numbers to be Generated: \n");
+    scanf("%d", &n);
+
+    int *a1 = getRandom(n);
 
 
-    int *a1 = getRandom();
-
-
-    int *b=Reverse(a1);
+    int *b=Reverse(a1,n);
 
     start = clock();
 
-     bubbleSort(b);
+     bubbleSort(b,n);
 
     end = clock();
 
