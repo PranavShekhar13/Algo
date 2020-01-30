@@ -76,7 +76,7 @@ int main()
 
     end = clock();
 
-    displaySequence(a2);
+    displaySequence(a2,n);
 
     double elapsed = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
     printf("Time elapsed in ms: %f", elapsed);
