@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-void selectionSort(int*,int);
+void insertionSort(int*,int);
 int *getRandom(int);
 int *Reverse(int*,int);
 
