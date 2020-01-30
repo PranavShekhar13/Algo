@@ -1,6 +1,9 @@
-#include <bits/stdc++.h>
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
 
-using namespace std;
+void bubbleSort(int*);
+int *getRandom();
 
 void bubbleSort(int *a)
 {
@@ -18,18 +21,22 @@ void bubbleSort(int *a)
             }
         }
     }
+    printf("The Sorted Generated Sequence = \n");
+    
 
-    cout << "The Sorted Generated Numbers =" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << endl;
+    for(int i=0;i<n;i++){
+        printf("%d",a[i]);
+        printf("\n");
     }
+
 }
+
+
 
 int *getRandom()
 {
 
-    int *temp = new int[100];
+    int *temp = (int *)malloc(100*sizeof(int));
     for (int i = 1; i <= 100; i++)
     {
         temp[i] = rand() % 100; //get random number
@@ -38,6 +45,8 @@ int *getRandom()
     return temp;
 }
 
+
+
 int main()
 {
     clock_t start, end;
@@ -45,16 +54,15 @@ int main()
 
     int *a1 = getRandom();
 
+
     start = clock();
 
-    bubbleSort(a1);
+     bubbleSort(a1);
 
     end = clock();
 
-    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-    cout << "Time taken by program is : " << fixed
-         << time_taken << setprecision(5);
-    cout << " sec " << endl;
+    double elapsed = (double)(end - start) * 1000.0 / CLOCKS_PER_SEC;
+    printf("Time elapsed in ms: %f", elapsed);
 
     return 0;
 }
