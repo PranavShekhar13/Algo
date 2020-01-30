@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 
-int *selectionSort(int*);
-int *getRandom();
+int *selectionSort(int*, int n);
+int *getRandom(int n);
 void displaySequence();
 
-int* selectionSort(int *arr)
+int* selectionSort(int *arr, int n)
 {
-    int n = 100, min, temp;
+    int min, temp;
     for (int i = 0; i < n - 1; i++)
     {
 
@@ -25,7 +25,7 @@ int* selectionSort(int *arr)
         arr[min] = temp;
     }
 
-    int *a = (int *)malloc(100*sizeof(int));
+    int *a = (int *)malloc(n*sizeof(int));
 
     for (int i = 0; i < n; i++)
     {
@@ -46,10 +46,11 @@ void displaySequence(int *arr){
     }
 }
 
-int *getRandom()
+int *getRandom(int n)
 {
+    
 
-    int *temp = (int *)malloc(100*sizeof(int));
+    int *temp = (int *)malloc(n*sizeof(int));
     for (int i = 1; i <= 100; i++)
     {
         temp[i] = rand() % 100; //get random number
@@ -61,16 +62,19 @@ int *getRandom()
 int main()
 {
     clock_t start, end;
+    
+    int n;
+    printf("Enter the number of numbers to be Generated:-\n");
+    scanf("%d", &n);
+
+    int *a1 = getRandom(n);
 
 
-    int *a1 = getRandom();
-
-
-    int *arr = selectionSort(a1);
+    int *arr = selectionSort(a1,n);
 
     start = clock();
 
-    int *a2 = selectionSort(arr);
+    int *a2 = selectionSort(arr,n);
 
     end = clock();
 
