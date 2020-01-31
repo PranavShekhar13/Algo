@@ -2,27 +2,26 @@
 #include<stdlib.h>
 #include<time.h>
 
-void selectionSort(int*,int);
+void insertionSort(int*,int);
 int *getRandom(int n);
 
-void selectionSort(int *arr,int n)
+void insertionSort(int *arr,int n)
 {
-    int min, temp;
-    for (int i = 0; i < n - 1; i++)
+        int key,j;
+    for (int i = 1; i < n; i++)
     {
+        key = arr[i];
+        j = i - 1;
 
-        min = i;
-        for (int j = i + 1; j < n; j++)
+        while (j >= 0 && key < arr[j])
         {
-            if (arr[j] < arr[min])
-            {
-                min = j;
-            }
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
-        temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
+
+        arr[j + 1] = key;
     }
+
     printf("The Sorted Generated Sequence = \n");
     
 
