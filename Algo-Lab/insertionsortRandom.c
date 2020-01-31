@@ -62,7 +62,7 @@ int main()
 
     start = clock();
 
-     selectionSort(a1,n);
+     insertionSort(a1,n);
 
     end = clock();
 
